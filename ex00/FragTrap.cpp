@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 19:00:57 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/25 21:04:50 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/29 18:25:20 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ FragTrap::FragTrap() : name("unknown"), hit(100), energy(100)
 	std::cout << "This time it'll be awesome, I promise!" << std::endl;
 }
 
+
+FragTrap::FragTrap(const FragTrap &clone)
+{
+	FragTrap::operator=(clone);
+}
+
 FragTrap::FragTrap(std::string name) : name(name), hit(100), energy(100)
 {
 	std::cout << "NO! Son of a... HEY! You! Yeah yeah, Claptrap unit!" << std::endl;
@@ -43,10 +49,17 @@ FragTrap::~FragTrap()
 	std::cout << "I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
 }
 
+FragTrap &FragTrap::operator=(const FragTrap &op)
+{
+	this->name = op.name;
+	this->hit = op.hit;
+	this->energy = op.energy;
+	return (*this);
+}
+
 void FragTrap::rangedAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP "
-			  << FragTrap::name
+	std::cout << FragTrap::name
 			  << " attacks "
 			  << target
 			  << " at range, causing "
@@ -58,8 +71,7 @@ void FragTrap::rangedAttack(std::string const &target)
 
 void FragTrap::meleeAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP "
-			  << FragTrap::name
+	std::cout << FragTrap::name
 			  << " attacks "
 			  << target
 			  << " at melee, causing "
@@ -74,8 +86,7 @@ void FragTrap::takeDamage(unsigned int amount)
 	amount -= FragTrap::armor;
 	if (amount < 0)
 		amount = 0;
-	std::cout << "FR4G-TP "
-			  << FragTrap::name
+	std::cout << FragTrap::name
 			  << " takes "
 			  << amount
 			  << " points of damage!"
@@ -89,8 +100,7 @@ void FragTrap::beRepaired(unsigned int amount)
 {
 	if (amount < 0)
 		amount = 0;
-	std::cout << "FR4G-TP "
-			  << FragTrap::name
+	std::cout << FragTrap::name
 			  << " repaired and gained "
 			  << amount
 			  << " hit points!"
@@ -108,8 +118,7 @@ void FragTrap::vaulthunter_dot_exe(std::string const &target)
 		return;
 	}
 	FragTrap::energy -= 25;
-	std::cout << "FR4G-TP "
-			  << FragTrap::name
+	std::cout << FragTrap::name
 			  << " attacks "
 			  << target
 			  << ", causing "
