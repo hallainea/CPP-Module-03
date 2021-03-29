@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 22:59:03 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/26 11:14:34 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/29 20:01:49 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ class NinjaTrap
 {
 
 public:
+	NinjaTrap(void);
+	NinjaTrap(const NinjaTrap &clone);
 	NinjaTrap(std::string name);
 	~NinjaTrap(void);
+	NinjaTrap &operator=(const NinjaTrap &op);
 	void ninjaShoebox(ClapTrap &target);
 	void ninjaShoebox(FragTrap &target);
 	void ninjaShoebox(ScavTrap &target);
