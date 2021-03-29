@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:18:29 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/29 18:29:20 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/29 19:46:38 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ private:
 	int energy;
 
 public:
-	ScavTrap();
+	ScavTrap(void);
 	ScavTrap(const ScavTrap &clone);
 	ScavTrap(std::string name);
-	~ScavTrap();
+	~ScavTrap(void);
 	ScavTrap &operator=(const ScavTrap &op);
 	void rangedAttack(std::string const &target);
 	void meleeAttack(std::string const &target);

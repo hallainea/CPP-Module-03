@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 20:27:40 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/29 18:30:47 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/29 19:46:32 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ std::string ScavTrap::quotes[5] = {
 	"Man versus machine! Very tiny streamlined machine!",
 	"Care to have a friendly duel?"};
 
-ScavTrap::ScavTrap() : name("unknown"), hit(100), energy(50)
+ScavTrap::ScavTrap(void) : name("unknown"), hit(100), energy(50)
 {
 	std::cout << "Let's get this party started!" << std::endl;
 }
@@ -43,7 +43,7 @@ ScavTrap::ScavTrap(std::string name) : name(name), hit(100), energy(50)
 	std::cout << "Hey everybody! Check out my package!" << std::endl;
 }
 
-ScavTrap::~ScavTrap()
+ScavTrap::~ScavTrap(void)
 {
 	std::cout << "I'm too pretty to die!" << std::endl;
 }

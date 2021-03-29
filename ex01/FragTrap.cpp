@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 19:00:57 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/29 18:29:48 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/29 19:45:54 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ std::string FragTrap::quotes[5] = {
 	"Defragmenting!",
 	"Recompiling my combat code!"};
 
-FragTrap::FragTrap() : name("unknown"), hit(100), energy(100)
+FragTrap::FragTrap(void) : name("unknown"), hit(100), energy(100)
 {
 	std::cout << "This time it'll be awesome, I promise!" << std::endl;
 }
@@ -43,7 +43,7 @@ FragTrap::FragTrap(std::string name) : name(name), hit(100), energy(100)
 	std::cout << "NO! Son of a... HEY! You! Yeah yeah, Claptrap unit!" << std::endl;
 }
 
-FragTrap::~FragTrap()
+FragTrap::~FragTrap(void)
 {
 	std::cout << "I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
 }
