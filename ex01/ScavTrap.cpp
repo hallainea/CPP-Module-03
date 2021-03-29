@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 20:27:40 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/25 22:40:18 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/29 18:30:47 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ ScavTrap::ScavTrap() : name("unknown"), hit(100), energy(50)
 	std::cout << "Let's get this party started!" << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &clone)
+{
+	ScavTrap::operator=(clone);
+}
+
 ScavTrap::ScavTrap(std::string name) : name(name), hit(100), energy(50)
 {
 	std::cout << "Hey everybody! Check out my package!" << std::endl;
@@ -43,10 +48,17 @@ ScavTrap::~ScavTrap()
 	std::cout << "I'm too pretty to die!" << std::endl;
 }
 
+ScavTrap &ScavTrap::operator=(const ScavTrap &op)
+{
+	this->name = op.name;
+	this->hit = op.hit;
+	this->energy = op.energy;
+	return (*this);
+}
+
 void ScavTrap::rangedAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP "
-			  << ScavTrap::name
+	std::cout << ScavTrap::name
 			  << " attacks "
 			  << target
 			  << " at range, causing "
@@ -58,8 +70,7 @@ void ScavTrap::rangedAttack(std::string const &target)
 
 void ScavTrap::meleeAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP "
-			  << ScavTrap::name
+	std::cout << ScavTrap::name
 			  << " attacks "
 			  << target
 			  << " at melee, causing "
@@ -74,8 +85,7 @@ void ScavTrap::takeDamage(unsigned int amount)
 	amount -= ScavTrap::armor;
 	if (amount < 0)
 		amount = 0;
-	std::cout << "FR4G-TP "
-			  << ScavTrap::name
+	std::cout << ScavTrap::name
 			  << " takes "
 			  << amount
 			  << " points of damage!"
@@ -89,8 +99,7 @@ void ScavTrap::beRepaired(unsigned int amount)
 {
 	if (amount < 0)
 		amount = 0;
-	std::cout << "FR4G-TP "
-			  << ScavTrap::name
+	std::cout << ScavTrap::name
 			  << " repaired and gained "
 			  << amount
 			  << " hit points!"
@@ -108,8 +117,7 @@ void ScavTrap::challengeNewcomer(void)
 		return;
 	}
 	ScavTrap::energy -= 25;
-	std::cout << "FR4G-TP "
-			  << ScavTrap::name
+	std::cout << ScavTrap::name
 			  << " challenges! "
 			  << ScavTrap::quotes[rand() % ScavTrap::quotes_length]
 			  << std::endl;

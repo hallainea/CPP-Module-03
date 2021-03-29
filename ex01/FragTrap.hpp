@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:53:18 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/23 22:54:55 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/29 18:17:16 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ private:
 
 public:
 	FragTrap();
+	FragTrap(const FragTrap &clone);
 	FragTrap(std::string name);
 	~FragTrap();
+	FragTrap &operator=(const FragTrap &op);
 	void rangedAttack(std::string const &target);
 	void meleeAttack(std::string const &target);
 	void takeDamage(unsigned int amount);

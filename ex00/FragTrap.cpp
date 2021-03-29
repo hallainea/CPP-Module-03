@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 19:00:57 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/29 18:25:20 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/29 18:29:44 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ FragTrap::FragTrap() : name("unknown"), hit(100), energy(100)
 {
 	std::cout << "This time it'll be awesome, I promise!" << std::endl;
 }
-
 
 FragTrap::FragTrap(const FragTrap &clone)
 {
