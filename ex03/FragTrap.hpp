@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 18:53:18 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/25 22:41:20 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/29 19:51:12 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ private:
 	static std::string quotes[];
 
 public:
+	FragTrap(void);
+	FragTrap(const FragTrap &clone);
 	FragTrap(std::string name);
 	~FragTrap(void);
+	FragTrap &operator=(const FragTrap &op);
 	void vaulthunter_dot_exe(std::string const &target);
 };
 #endif

@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 19:00:57 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/25 23:21:04 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/29 19:53:45 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,25 @@ std::string FragTrap::quotes[5] = {
 	"Place your bets!",
 	"Defragmenting!",
 	"Recompiling my combat code!"};
+
+FragTrap::FragTrap(void)
+	: ClapTrap("unknown", "Meet professor punch!", "Crack shot!")
+{
+	ClapTrap::hit = 100;
+	ClapTrap::max_hit = 100;
+	ClapTrap::energy = 100;
+	ClapTrap::max_energy = 100;
+	ClapTrap::level = 1;
+	ClapTrap::melee = 30;
+	ClapTrap::ranged = 20;
+	ClapTrap::armor = 5;
+	std::cout << "NO! Son of a... HEY! You! Yeah yeah, Claptrap unit!" << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &clone)
+{
+	FragTrap::operator=(clone);
+}
 
 FragTrap::FragTrap(std::string name)
 	: ClapTrap(name, "Meet professor punch!", "Crack shot!")
@@ -41,6 +60,12 @@ FragTrap::~FragTrap(void)
 	std::cout << "I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
 }
 
+FragTrap &FragTrap::operator=(const FragTrap &op)
+{
+	ClapTrap::operator=(op);
+	return (*this);
+}
+
 void FragTrap::vaulthunter_dot_exe(std::string const &target)
 {
 	if (FragTrap::energy < 25)
@@ -49,8 +74,7 @@ void FragTrap::vaulthunter_dot_exe(std::string const &target)
 		return;
 	}
 	FragTrap::energy -= 25;
-	std::cout << "FR4G-TP "
-			  << FragTrap::getName()
+	std::cout << FragTrap::getName()
 			  << " attacks "
 			  << target
 			  << ", causing "
